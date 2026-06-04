@@ -10,7 +10,8 @@ import {
   ListItemIcon,
   Tooltip,
   Fade,
-  Divider
+  Divider , 
+  Dialog
  
 } from "@mui/material";
 import {
@@ -42,7 +43,7 @@ const PostCard = memo(({ post: initialPost, onDelete }) => {
   const [deleting, setDeleting] = useState(false);
   const [commentsExpanded, setCommentsExpanded] = useState(false);
   const [menuAnchor, setMenuAnchor] = useState(null);
- 
+ const [imageOpen, setImageOpen] = useState(false);
 
   // Derived state
   const isLiked = post.likes?.some((l) => l.user === user?._id || l.username === user?.username);
@@ -304,6 +305,22 @@ const PostCard = memo(({ post: initialPost, onDelete }) => {
             />
           )}
         </CardContent>
+<Dialog
+  open={imageOpen}
+  onClose={() => setImageOpen(false)}
+  maxWidth="lg"
+>
+  <img
+    src={post.image?.url}
+    alt="Post"
+    style={{
+      maxWidth: "100%",
+      maxHeight: "90vh",
+      display: "block",
+    }}
+  />
+</Dialog>
+                
       </Card>
     </Fade>
   );
