@@ -5,7 +5,7 @@ import axios from "axios";
  * All requests automatically include JWT from localStorage
  */
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || "http://localhost:5000/api",
+  baseURL: process.env.REACT_APP_API_URL ||  "https://threewassignment-backend-okux.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
