@@ -42,7 +42,7 @@ const PostCard = memo(({ post: initialPost, onDelete }) => {
   const [deleting, setDeleting] = useState(false);
   const [commentsExpanded, setCommentsExpanded] = useState(false);
   const [menuAnchor, setMenuAnchor] = useState(null);
-  const [imageOpen, setImageOpen] = useState(false);
+ 
 
   // Derived state
   const isLiked = post.likes?.some((l) => l.user === user?._id || l.username === user?.username);
